@@ -1,1 +1,7 @@
-""
+# vagrant stuff
+/.vagrant
+
+# Dynamically generated file
+*.pem
+*.crt
+
