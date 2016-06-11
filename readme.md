@@ -72,7 +72,7 @@ Run the commands below:
 
 ## About Chef-Server environment
 
-Details regarding Chef-Server environment installed configuration can be found in chef-server.md
+Details regarding Chef-Server environment installed configuration can be found in [chef-server.md] (https://github.com/gilleslabs/learn-chef/blob/master/chef-server.md)
 
 ## Credits
 
