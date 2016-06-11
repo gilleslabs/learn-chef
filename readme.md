@@ -34,10 +34,22 @@ VM | vCPU/vRAM | IP Address| user/password | root password |
 
 ## Installation
 
+#### Getting started:
+
 Run the commands below:
 
 	git clone https://github.com/gilleslabs/learn-chef
 	cd learn-chef
+
+###### Launching Chef-Client ready-to-go VM
+
+1. Run the command below
+
+	vagrant up chef-client
+
+2. Setup should take about 5 minutes to complete
+
+3. When setup is done you can connect to chef-client VM with your favorite ssh client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
 
 ## Credits
 
