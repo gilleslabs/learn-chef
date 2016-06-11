@@ -36,10 +36,9 @@ VM | vCPU/vRAM | IP Address| user/password | root password |
 
 Run the commands below:
 
-	```
 	git clone https://github.com/gilleslabs/learn-chef
 	cd learn-chef
-	```
+
 ## Credits
 
 This project was totally inspired from [Learn Chef](https://learn.chef.io/)
