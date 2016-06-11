@@ -32,6 +32,14 @@ VM | vCPU/vRAM | IP Address| user/password | root password |
 **chef-mgmt** | 1vCPU/512MB | 192.168.99.28 | vagrant/vagrant | vagrant |
 + **Recommended hardware :** Computer with Multi-core CPU and 8GB+ memory
 
+## Installation
+
+Run the commands below:
+
+	```
+	git clone https://github.com/gilleslabs/learn-chef
+	cd learn-chef
+	```
 ## Credits
 
 This project was totally inspired from [Learn Chef](https://learn.chef.io/)
