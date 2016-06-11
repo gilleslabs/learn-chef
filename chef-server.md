@@ -89,9 +89,12 @@ As you can see the **chef_server_url** use the Chef Server FQDN (mychefserver.ex
 **Tips:** Shall you use another workstation than **chef-mgmt** to interact with Chef Server:
    + Ensure that mychefserver.example.com can be resolved by the workstation.
       + Below entry in the hosts file of the workstation shall be enough:
+	```
+	  192.168.99.26 mychefserver.example.com
+	  ````
    + Copy the **knife.rb** file in **.chef** folder
 
-	192.168.99.26 mychefserver.example.com
+
 
 
 ## Workstation (chef-mgmt) configuration details
