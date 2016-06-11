@@ -20,7 +20,7 @@ The Vagrantfile machines associated with the three above elements are:
 
 **Please Note:** The best practice for a production environment is not to run knife on the server, and not work directly with the server’s chef-repo, but to use a management workstation. For this reason instead of naming the **workstation** VM chef-workstation, it has been instead named chef-mgmt.
 
-## Chef Server configuration details
+## Chef Server (chef-server) configuration details
 
 ###### About provisioning
 
@@ -55,7 +55,13 @@ Another RSA private key is generated automatically during **Organization creatio
 Also, during Chef-Server installation, a SSL Self-Signed certificate is issued.
 + The associated filename is : **mychefserver.example.com.crt**
   + The associated file can be found on **the host running VirtualBox** in **learn-chef/cert** folder.
-  
+
+
+**Tips:**Shall you use another workstation than **chef-mgmt** to interact with Chef Server.
+   + Copy **jdoe.pem** file in the **.chef** folder
+   + Copy **mychefserver.example.com.crt** in the **.chef/trusted_certs** folder
+   
+   
 **Please Note:** These files are generated each time a ```vagrant up chef-server``` is done.
 
 ###### About knife.rb file
@@ -77,3 +83,15 @@ The **Vagrant learn-chef** knife.rb file content is:
 	chef_server_url          "https://mychefserver.example.com/organizations/4thcoffee"
 	cookbook_path            ["#{current_dir}/../cookbooks"]
 	
+
+As you can see the **chef_server_url** use the Chef Server FQDN (mychefserver.example.com)
+
+**Tips:** Shall you use another workstation than **chef-mgmt** to interact with Chef Server:
+   + Ensure that mychefserver.example.com can be resolved by the workstation.
+      + Below entry in the hosts file of the workstation shall be enough:
+   + Copy the **knife.rb** file in **.chef** folder
+
+	192.168.99.26 mychefserver.example.com
+
+
+## Workstation (chef-mgmt) configuration details
