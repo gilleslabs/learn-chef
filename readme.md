@@ -68,7 +68,7 @@ Run the commands below:
 
 3. When the setup is done browse to `https://192.168.99.26/` in your browser, and you should have a default Chef Manage login page ! 
 
-4. Log in with `user: jdoe and password: abc123` credentials
+4. Log in with user: **jdoe** and password: **abc123**
 
 ## Credits
 
