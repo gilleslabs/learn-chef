@@ -43,9 +43,10 @@ Run the commands below:
 
 ###### Launching Chef-Client ready-to-go VM
 
-1. Run the command below
+1. Run the command below:
 
 	vagrant up chef-client
+	
 
 2. Setup should take about 5 minutes to complete
 
