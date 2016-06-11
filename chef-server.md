@@ -58,4 +58,4 @@ Also, during Chef-Server installation, a SSL Self-Signed certificate is issued.
   
 **Please Note:** These files are generated each time a ```vagrant up chef-server``` is done.
 
-##### About knife.rb file
+###### About knife.rb file
