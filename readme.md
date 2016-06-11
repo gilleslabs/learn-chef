@@ -41,7 +41,11 @@ Run the commands below:
 	git clone https://github.com/gilleslabs/learn-chef
 	cd learn-chef
 
-###### Launching Chef-Client ready-to-go VM
+
+####Lauching Chef-Client or Chef-Server environment:
+
+
+###### Steps for launching Chef-Client ready-to-go VM:
 
 1. Run the command below:
 	```
