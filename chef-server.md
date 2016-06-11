@@ -22,6 +22,8 @@ The Vagrantfile machines associated with the three above elements are:
 
 ## Chef Server configuration details
 
+###### About provisioning
+
 The provisioning of **chef-server** is done based on [Chef Standalone] (https://docs.chef.io/install_server.html) installation guide.
 
 In order to have a ready-to-go Chef Server, below tasks are completed:
@@ -38,8 +40,22 @@ Parameter | Associated Value |
 **Administrator** | jdoe |
 **Organization** | 4thcoffee |
 
-An RSA private key is generated automatically during Administrator creation
+An RSA private key is generated automatically during **Administrator creation**
 + The associated filename is : **jdoe.pem**
++ The associated file can be found
+  + On **chef-server**               : in **/tmp** folder.
+  + On **the host running VirtualBox**: in **learn-chef/cert** folder.
+
+Another RSA private key is generated automatically during **Organization creation**. This is the chef-validator key. 
++ The associated filename is : **4thcoffee-validator.pem**
 + The associated file can be found
   + On **chef-server**               : in **/tmp** folder
   + On **the host running VirtualBox**: in **learn-chef/cert** folder
+
+Also, during Chef-Server installation, a SSL Self-Signed certificate is issued.
++ The associated filename is : **mychefserver.example.com.crt**
+  + The associated file can be found on **the host running VirtualBox** in **learn-chef/cert** folder.
+  
+**Please Note:** These files are generated each time a ```vagrant up chef-server``` is done.
+
+##### About knife.rb file
