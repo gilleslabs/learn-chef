@@ -57,6 +57,19 @@ Run the commands below:
 
 3. When setup is done you can connect to chef-client VM with your favorite ssh client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
 
+###### Steps for launching Chef-Server ready-to-go environment (Workstation + Server + Node):
+
+1. Run the command below:
+	```
+	vagrant up chef-server node chef-mgmt
+	```
+
+2. The setup will take some time to finish (approximatively 15 minutes depending on your hardware). Sit back and enjoy!
+
+3. When the setup is done browse to `https://192.168.99.26/` in your browser, and you should have a default Chef Manage login page ! 
+
+4. Log in using `username: **jdoe** and password: **abc123**` credentials
+
 ## Credits
 
 This project was totally inspired from [Learn Chef](https://learn.chef.io/)
