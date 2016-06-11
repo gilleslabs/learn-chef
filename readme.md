@@ -70,6 +70,10 @@ Run the commands below:
 
 4. Log in with user: **jdoe** and password: **abc123**
 
+## About Chef-Server environment
+
+Details regarding Chef-Server environment installed configuration can be found in chef-server.md
+
 ## Credits
 
 This project was totally inspired from [Learn Chef](https://learn.chef.io/)
