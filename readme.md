@@ -30,7 +30,7 @@ VM | vCPU/vRAM | IP Address| user/password | root password |
 **chef-server** | 4vCPU/ 4096 MB | 192.168.99.26 | vagrant/vagrant | vagrant |
 **node** | 1vCPU/512MB | 192.168.99.27 | vagrant/vagrant | vagrant |
 **chef-mgmt** | 1vCPU/512MB | 192.168.99.28 | vagrant/vagrant | vagrant |
-+ ** Recommended hardware : ** Computer with Multi-core CPU and 8GB+ memory
++ **Recommended hardware :** Computer with Multi-core CPU and 8GB+ memory
 
 ## Credits
 
