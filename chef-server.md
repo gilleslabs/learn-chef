@@ -26,7 +26,7 @@ The Vagrantfile machines associated with the three above elements are:
 
 The provisioning of **chef-server** is done based on [Chef Standalone] (https://docs.chef.io/install_server.html) installation guide.
 
-In order to have a ready-to-go Chef Server, below tasks are completed:
+In order to have a ready-to-go Chef Server, below tasks are completed during provisioning:
 
 + Set Chef Server FQDN
 + Creation of an Administrator
@@ -98,3 +98,70 @@ As you can see the **chef_server_url** use the Chef Server FQDN (mychefserver.ex
 
 
 ## Workstation (chef-mgmt) configuration details
+
+The provisioning of **chef-mgmt** is done based on [Chef SDK] (https://docs.chef.io/install_dk.html) installation guide.
+
+In order to have a ready-to-go **Workstation** VM, , below tasks are completed during provisioning: 
++ Setup of the chef-repo directory
++ Creation of the .chef directory
++ Creation of a cookbooks directory
++ Copy of the Chef Server USER.pem in .chef directory 
++ Copy of the Chef Server ORGANIZATION-validator.pem in .chef directory
++ Copy of the knife.rb file 
+
+Below are the associated values:
+
+Parameter | Associated Value |
+|---|---|
+**chef-repo** directory | /home/vagrant/chef-repo |
+**.chef** directory| /home/vagrant/chef-repo/.chef |
+**cookbooks** directory | /home/vagrant/chef-repo/cookbooks |
+**USER.pem** | jdoe.pem |
+**ORGANIZATION.pem** | 4thcoffee-validator.pem |
+
+**IMPORTANT NOTE**: All files are above file for chef-mgmt are created during [chef-server provisioning] (https://github.com/gilleslabs/learn-chef/blob/master/chef-server.md#chef-server-chef-server-configuration-details), as a consequence **the chef-server VM MUST always be provisioned before chef-mgmt VM**
+
+All files above are copied from the host running VirtualBox **learn-chef/cert** folder
+
+**Note regarding ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial**:
+In the tutorial the working directory is `~\learn-chef\, when using the **chef-mgmt** VM, you're working directory will be `/home/vagrant/chef-repo/`
+
+##Chef Server environment best practices##
+
+There are three ways to launch this environment
+
+######Launching Chef Server environment
+
++ Full environment
++ **Chef Server** only, this applies when you have already a **Workstation** with Chef SDK installed
++ **Chef Server + Workstation**, this applies when you have already a **node** up and running
+
+The associated `vagrant up` command are described in below table:
+
+Environment | Vagrant up command |
+|---|---|
+**Full environment** | vagrant up chef-server node chef-mgmt |
+**Chef Server only** | vagrant up chef-server |
+** Chef Server + Workstation** | vagrant up chef-server chef-mgmt|
+
+###### Stopping Chef Server environment
+
+To stop a running Chef Server environment, run the command below :
+
+	```
+	vagrant halt chef-client
+	```
+
+This command will **stop** all VMs running Virtualbox
+
+In order to restart the environment please refer to previous section.
+
+###### Destroy a Chef Server environment
+
+To stop a running Chef Server environment, run the command below :
+
+	```
+	vagrant destroy
+	```
+This command will destroy and **remove** all VMs from the host running VirtualBox
+

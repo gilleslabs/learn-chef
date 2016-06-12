@@ -30,6 +30,7 @@ $mgmt = <<MGMT
 	 sudo su - vagrant
 	 mkdir /home/vagrant/chef-repo
 	 mkdir /home/vagrant/chef-repo/.chef
+	 mkdir /home/vagrant/chef-repo/cookbooks
 	 mkdir /home/vagrant/chef-repo/.chef/trusted_certs
 	 cp /vagrant/cert/jdoe.pem /home/vagrant/chef-repo/.chef/.
 	 cp /vagrant/cert/4thcoffee-validator.pem /home/vagrant/chef-repo/.chef/.
