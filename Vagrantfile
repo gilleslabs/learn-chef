@@ -1,11 +1,26 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
-# This section define provisioning shell for chef-client VM
+######################################################################################################
+#                                                                                                    #
+# Vagrantfile for provisioning ready-to-go VM for learning Chef 12.6                                 #
+#                                                                                                    #
+# Author: Gilles Tosi                                                                                #
+#                                                                                                    #
+# The up-to-date version and associated dependencies/project documentation is available at:          #
+#                                                                                                    #
+# https://github.com/gilleslabs/learn-chef/                                                          #
+#                                                                                                    #
+######################################################################################################
+
+
+
+
+######################################################################################################
+#                                                                                                    #
+#      Setup of $client variable which will be used for chef-client VM Shell inline provisioning     #
+#                                                                                                    #
+######################################################################################################
 
 $client = <<CLIENT
      sudo apt-get update --yes
@@ -16,16 +31,30 @@ $client = <<CLIENT
      sudo apt-get install emacs --yes
 CLIENT
 
+######################################################################################################
+#                                                                                                    #
+#      Setup of $mgmt variable which will be used for chef-mgmt VM Shell inline provisioning         #
+#                                                                                                    #
+######################################################################################################
+
 $mgmt = <<MGMT
-     sudo apt-get update --yes
+     
+	 ######## Installing Chef SDK and some text editors        ###########################
+	 sudo apt-get update --yes
      sudo apt-get install curl --yes > /dev/null
      curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk
      sudo apt-get install vim --yes
      sudo apt-get install nano --yes
      sudo apt-get install emacs --yes
+	 
+	 ######## Applying Chef SDK post deployment pre-requisites ###########################
+	 
 	 echo 'eval "$(chef shell-init bash)"' >> /home/vagrant/.bash_profile
 	 echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> /home/vagrant/.bash_profile 
 	 source /home/vagrant/.bash_profile
+	 
+	 ######## Setting chef repo and copying chef-server RSA key and SSL certificate   ####
+	 
 	 cd /home/vagrant/
 	 sudo su - vagrant
 	 mkdir /home/vagrant/chef-repo
@@ -36,19 +65,29 @@ $mgmt = <<MGMT
 	 cp /vagrant/cert/4thcoffee-validator.pem /home/vagrant/chef-repo/.chef/.
 	 cp /vagrant/cert/knife.rb /home/vagrant/chef-repo/.chef/.
 	 cp /vagrant/cert/mychefserver.example.com.crt /home/vagrant/chef-repo/.chef/trusted_certs/.
+	 
+	 ######## Updating /etc/hosts                                                      #####
+	 
 	 echo "192.168.99.26 mychefserver.example.com" | sudo tee -a /etc/hosts
 MGMT
-
-# This section define provisioning shell for chef-server VM
+######################################################################################################
+#                                                                                                    #
+#   Setup of $server variable which will be used for chef-server VM Shell inline provisioning        #
+#                                                                                                    #
+######################################################################################################
 
 $server = <<SERVER
      sudo apt-get update --yes
+	 ########           Applying Chef Server pre-requisites    ##################### 
+	 
 	 sudo apt-get install apparmor-utils —yes
 	 sudo aa-complain /etc/apparmor.d/*
 	 sudo hostname 'mychefserver.example.com'
 	 echo "127.0.1.1 192.168.99.26 mychefserver" | sudo tee -a /etc/hosts
 	 sudo apt-get install ntp --yes
 	 sudo useradd opscode
+	 
+	 ########           Installing Chef Server                  #####################
 	 
      cd /tmp
 	 wget https://packages.chef.io/stable/ubuntu/14.04/chef-server-core_12.6.0-1_amd64.deb
@@ -59,12 +98,20 @@ $server = <<SERVER
 	 sudo chef-server-ctl install chef-manage 
 	 sudo chef-server-ctl reconfigure --accept-license
 	 sudo chef-manage-ctl reconfigure --accept-license
+	 
+	 ########           Installing Chef Push Job                #####################
+	 
 	 sudo chef-server-ctl install opscode-push-jobs-server
 	 sudo chef-server-ctl reconfigure --accept-license
 	 sudo opscode-push-jobs-server-ctl reconfigure --accept-license
+	 
+	 ########           Installing Chef Reporting                #####################
+	 
 	 sudo chef-server-ctl install opscode-reporting
 	 sudo chef-server-ctl reconfigure --accept-license
 	 sudo opscode-reporting-ctl reconfigure --accept-license
+	 
+	 ########   Cleaning (previous deployment) RSA key and SSL Certificate ###########
 	 
 	 sudo touch /vagrant/cert/mychefserver.example.com.crt
 	 sudo touch /vagrant/cert/jdoe.pem
@@ -81,11 +128,19 @@ $server = <<SERVER
 
 SERVER
 
+######################################################################################################
+#                                                                                                    #
+#      Setup of $node variable which will be used for node VM Shell inline provisioning              #
+#                                                                                                    #
+######################################################################################################
+
 $node = <<NODE
      sudo apt-get remove chef --yes
 	 echo "192.168.99.26 mychefserver.example.com" | sudo tee -a /etc/hosts
 
 NODE
+
+
 Vagrant.configure(2) do |config|
 
 	config.vm.define "node" do |node|
