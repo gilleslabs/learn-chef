@@ -159,6 +159,6 @@ In order to restart the environment please refer to previous section.
 To stop a running Chef Server environment, run the command below :
 
 `vagrant destroy`
-	```
+
 This command will destroy and **remove** all VMs from the host running VirtualBox
 
