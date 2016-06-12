@@ -142,15 +142,13 @@ Environment | Vagrant up command |
 |---|---|
 **Full environment** | vagrant up chef-server node chef-mgmt |
 **Chef Server only** | vagrant up chef-server |
-** Chef Server + Workstation** | vagrant up chef-server chef-mgmt|
+**Chef Server + Workstation** | vagrant up chef-server chef-mgmt|
 
 ###### Stopping Chef Server environment
 
 To stop a running Chef Server environment, run the command below :
 
-	```
-	vagrant halt chef-client
-	```
+`vagrant halt chef-client`
 
 This command will **stop** all VMs running Virtualbox
 
@@ -160,8 +158,7 @@ In order to restart the environment please refer to previous section.
 
 To stop a running Chef Server environment, run the command below :
 
-	```
-	vagrant destroy
+`vagrant destroy`
 	```
 This command will destroy and **remove** all VMs from the host running VirtualBox
 
