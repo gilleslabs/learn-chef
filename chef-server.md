@@ -101,7 +101,7 @@ As you can see the **chef_server_url** use the Chef Server FQDN (mychefserver.ex
 
 The provisioning of **chef-mgmt** is done based on [Chef SDK] (https://docs.chef.io/install_dk.html) installation guide.
 
-In order to have a ready-to-go **Workstation** VM, , below tasks are completed during provisioning: 
+In order to have a ready-to-go **Workstation** VM, below tasks are completed during provisioning: 
 + Setup of the chef-repo directory
 + Creation of the .chef directory
 + Creation of a cookbooks directory
