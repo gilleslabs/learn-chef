@@ -88,6 +88,7 @@ Run the commands below:
 5. You can connect to : 
 + **chef-mgmt** VM with your favorite ssh client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
 + **chef-mgmt-win** VM with your favorite RDP client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
+  + **Note** : the **chef-mgmt-win** reboot after the provisioning
 
 ## About Chef-Server environment
 
