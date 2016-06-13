@@ -1,0 +1,6 @@
+Enable-RemoteDesktop
+chocolatey feature enable -n=allowGlobalConfirmation
+choco install git
+choco install chefdk
+choco install notepadplusplus
+chocolatey feature disable -n=allowGlobalConfirmation

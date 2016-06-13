@@ -4,17 +4,22 @@ Vagrant learn-chef creates ready-to-go VMs for [Chef] (https://www.chef.io/chef/
 
 The following is an overview of the ready-to-go VMs:
 
-+ **chef-client:** Ready-to-go VM for ["Learn the Chef basics on Ubuntu"] (https://learn.chef.io/learn-the-basics/ubuntu/) tutorial.
-+ **chef-server:** Ready-to-go VM (Server) for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial with already installed:
++ **chef-client:** Ready-to-go Ubuntu VM for ["Learn the Chef basics on Ubuntu"] (https://learn.chef.io/learn-the-basics/ubuntu/) tutorial.
++ **chef-server:** Ready-to-go Ubuntu VM (Server) for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial with already installed:
  + Chef Server 12.6
  + Chef Manage package
  + Chef Push Jobs package
  + Reporting package
-+ **chef-mgmt  :** Ready-to-go VM (Workstation) for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial with already installed:
++ **chef-mgmt  :** Ready-to-go Ubuntu VM (Workstation) for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial with already installed:
  + Chef SDK
  + knife.rb and user's RSA private key in /home/vagrant/chef-repo/.chef
  + chef-server SSL certificate in /home/vagrant/chef-repo/.chef/trusted_certs
-+ **node       :** Ready-to-go VM (Node) node for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/)
++ **chef-mgmt-win  :** Ready-to-go Windows 2012 VM (Workstation) for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/) tutorial with already installed:
+ + Chef SDK
+ + knife.rb and user's RSA private key in /home/vagrant/chef-repo/.chef
+ + chef-server SSL certificate in /home/vagrant/chef-repo/.chef/trusted_certs
+
++ **node       :** Ready-to-go Ubuntu VM (Node) node for ["Manage an Ubuntu node"] (https://learn.chef.io/manage-a-node/ubuntu/)
 ## Requirements
 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 5.0.20, but should also work on 5.0.20+ release.
@@ -24,12 +29,13 @@ All VMs are provisioned using ubuntu/trusty64 (Ubuntu 14.04 Trusty Tahr) from [a
 
 ## VMs details
 
-VM | vCPU/vRAM | IP Address| user/password | root password |
+VM | vCPU/vRAM | IP Address| user/password | root / Administrator password |
 ---|---|---|---|---|
 **chef-client** | 1vCPU/512MB | 192.168.99.25 | vagrant/vagrant | vagrant |
 **chef-server** | 4vCPU/ 4096 MB | 192.168.99.26 | vagrant/vagrant | vagrant |
 **node** | 1vCPU/512MB | 192.168.99.27 | vagrant/vagrant | vagrant |
 **chef-mgmt** | 1vCPU/512MB | 192.168.99.28 | vagrant/vagrant | vagrant |
+**chef-mgmt-win** | 2vCPU/4096MB | 192.168.99.29 | vagrant/vagrant | vagrant |
 + **Recommended hardware :** Computer with Multi-core CPU and 8GB+ memory
 
 ## Installation
@@ -60,8 +66,18 @@ Run the commands below:
 ###### Steps for launching Chef-Server ready-to-go environment (Workstation + Server + Node):
 
 1. Run the command below:
+
++ If you want to use the **Ubuntu Workstation**
+
 	```
 	vagrant up chef-server node chef-mgmt
+	```
+
++ If you want to use the **Windows 2012 Workstation**
+
+
+	```
+	vagrant up chef-server node chef-mgmt-win
 	```
 
 2. The setup will take some time to finish (approximatively 15 minutes depending on your hardware). Sit back and enjoy!
@@ -69,7 +85,9 @@ Run the commands below:
 3. When the setup is done browse to `https://192.168.99.26/` in your browser, and you should have a default Chef Manage login page ! 
 
 4. You can log in Chef Manage with user: **jdoe** and password: **abc123**
-5. you can connect to chef-mgmt VM with your favorite ssh client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
+5. You can connect to : 
++ **chef-mgmt** VM with your favorite ssh client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
++ **chef-mgmt-win** VM with your favorite RDP client using credentials provided in [VMs details] (https://github.com/gilleslabs/learn-chef#vms-details)
 
 ## About Chef-Server environment
 

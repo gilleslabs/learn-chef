@@ -97,9 +97,9 @@ As you can see the **chef_server_url** use the Chef Server FQDN (mychefserver.ex
 
 
 
-## Workstation (chef-mgmt) configuration details
+## Workstation (chef-mgmt and chef-mgmt-win) configuration details
 
-The provisioning of **chef-mgmt** is done based on [Chef SDK] (https://docs.chef.io/install_dk.html) installation guide.
+The provisioning of **chef-mgmt** and **chef-mgmt-win** is done based on [Chef SDK] (https://docs.chef.io/install_dk.html) installation guide.
 
 In order to have a ready-to-go **Workstation** VM, below tasks are completed during provisioning: 
 + Setup of the chef-repo directory
@@ -142,13 +142,14 @@ Environment | Vagrant up command |
 |---|---|
 **Full environment** | vagrant up chef-server node chef-mgmt |
 **Chef Server only** | vagrant up chef-server |
-**Chef Server + Workstation** | vagrant up chef-server chef-mgmt|
+**Chef Server + Ubuntu Workstation** | vagrant up chef-server chef-mgmt|
+**Chef Server + Windows 2012 Workstation** | vagrant up chef-server chef-mgmt-win|
 
 ###### Stopping Chef Server environment
 
 To stop a running Chef Server environment, run the command below :
 
-`vagrant halt chef-client`
+`vagrant halt`
 
 This command will **stop** all VMs running Virtualbox
 
