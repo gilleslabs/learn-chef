@@ -25,7 +25,7 @@ The following is an overview of the ready-to-go VMs:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads). Tested on 5.0.20, but should also work on 5.0.20+ release.
 - [Vagrant](http://www.vagrantup.com/downloads.html). Tested on 1.7.4
 
-All VMs are provisioned using ubuntu/trusty64 (Ubuntu 14.04 Trusty Tahr) from [atlas.hashicorp.com] (https://atlas.hashicorp.com/ubuntu/boxes/trusty64) images, thus your workstation must have a direct internet access. 
+All VMs are provisioned using ubuntu/trusty64 (Ubuntu 14.04 Trusty Tahr) or opentable/win-2012r2-standard-amd64-nocm (Windows 2012R2) from [atlas.hashicorp.com] (https://atlas.hashicorp.com/ubuntu/boxes/trusty64) images, thus your workstation must have a direct internet access. 
 
 ## VMs details
 
