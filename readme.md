@@ -98,6 +98,11 @@ Details regarding Chef-Server environment installed configuration can be found i
 
 This project was totally inspired from [Learn Chef](https://learn.chef.io/)
 
+## Integration with IT Process Orchestration tools
+
++ **HP Operations Orchestration :**
+  + The source code is available on [learn-chef-hpoo-content-pack] (https://github.com/gilleslabs/learn-chef-hpoo-content-pack) project 
+
 
 ## MIT
 
